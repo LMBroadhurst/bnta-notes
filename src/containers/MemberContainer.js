@@ -1,8 +1,18 @@
 import MemberList from "../components/MemberList";
+import NewMember from "../components/NewMember";
+import { useState } from "react";
+import UpdateStatus from "../components/UpdateStatus";
 
 const MemberContainer = () => {
 
-    const members = [
+    // State
+
+    const [applicationsOpen, setApplicationsOpen] = useState(true);
+    
+
+    // Variables
+
+    const [members, setMembers] = useState([
         {
             name: "Colin",
             email: "colin@brightnetwork.co.uk",
@@ -23,11 +33,24 @@ const MemberContainer = () => {
             email: "valeria@brightnetwork.co.uk",
             employeeNumber: 456
         },
-    ];
+    ]);
+
+
+    // Functions
+
+    const addNewMember = () => {
+        console.log("New member added baby.")
+    }
+
+    const updateApplicationsOpen = () => {
+        setApplicationsOpen(!applicationsOpen);
+    }
 
   return (
     <>
-        <p>Hello, from member container.</p>
+        <h1>People Directory</h1>
+        <NewMember handleButtonClick={addNewMember} applicationsOpen={applicationsOpen}/>
+        <UpdateStatus applicationsOpen={applicationsOpen} handleClick={updateApplicationsOpen} />
         <MemberList members={members} />
     </>
     
