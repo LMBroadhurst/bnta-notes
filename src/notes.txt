@@ -1,0 +1,22 @@
+Key features we get from React:
+- Virtual DOM - much faster render times (only change 1 part of the document instead of reloading whole doc)
+- Can use components to make re-usability possible in the world of HTML/CSS/JS
+- Unopinionated, very few rules we need to follow
+
+Still need to be applying SOLID where sensible!
+
+list.MAP is a really powerful and commonly used function in react
+Often, we should map the value and index within map, to assign each output a unique key. E.g.
+
+                    const fruits = ["apple", "orange", "banana"]
+
+                    const fruitsList = fruits.map((fruit, index) => (
+                        <li key={index}>{fruit}</li>
+                    ));
+
+                    return (
+                        <ul>{fruitsList}</ul>
+                    )
+
+
+
